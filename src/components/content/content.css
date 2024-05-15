@@ -1,0 +1,13 @@
+.content{
+ &.childs{
+    display: flex;
+    gap: 60px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+ }
+ &.add{
+    height: 80px;
+    cursor: pointer;
+ }
+}

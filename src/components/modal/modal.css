@@ -1,0 +1,49 @@
+.modal{
+   
+   &.root{
+    padding: 32px;
+        width: 20%;
+        background-color: white;
+        border: 2px solid gray;
+        position: fixed;
+        top: 36%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+       
+   }
+    &.selectedOption{
+background-color: #49baff ;
+color: white;
+min-width: 50px;
+text-align: center;
+padding: 5px 0px;
+
+    }
+    &.unselectedOption{
+    min-width: 50px;
+    text-align: center;
+    padding: 5px 0px;
+
+    }
+    &.flex{
+        display: flex;
+        align-items: center;
+        border: 2px solid gray;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 20px;
+
+    }
+    &.input{
+        margin-top: 10px;
+    }
+    &.create{
+        margin-top: 10px;
+    }
+}

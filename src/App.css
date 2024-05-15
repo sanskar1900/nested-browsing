@@ -32,7 +32,17 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  padding: 10px 20px;
+}
+.divide{
+  height: 1px;
+  background-color: gainsboro;
+  margin-top: 10px;
 }

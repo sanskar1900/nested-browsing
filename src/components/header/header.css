@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.backbtn {
+        cursor: pointer;
+    }
+
+    &.current{
+        color: gray;
+        cursor: pointer;
+    }
+    &.prev{
+        color: black;
+        cursor: pointer;
+    }
+    &.breadCrumbs{
+       display: flex;
+       gap: 10px;
+    }
+}
