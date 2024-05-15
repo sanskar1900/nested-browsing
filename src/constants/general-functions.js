@@ -21,7 +21,7 @@ export const updateNode = (tree, path, operation, newNode) => {
         } else if (operation === "remove") {
             return { ...tree, child: tree.child.filter(node => node.name !== newNode.name) };
         } else if (operation === "get") {
-            return tree; // Return the current node if operation is "get" and path is empty
+            return tree;
         }
         return tree;
     }
