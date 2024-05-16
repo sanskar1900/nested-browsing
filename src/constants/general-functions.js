@@ -9,7 +9,7 @@ export const getNode = (tree, path, operation, newNode) => {
     const [index, ...restPath] = path;
     for (let i = 0; i < tree.child.length; i++) {
         if (i === index) {
-            return updateNode(tree.child[i], restPath, operation, newNode)
+            return getNode(tree.child[i], restPath, operation, newNode);
         }
     }
 
@@ -19,7 +19,7 @@ export const updateNode = (tree, path, operation, newNode) => {
         if (operation === "add") {
             return { ...tree, child: [...tree.child, newNode] };
         } else if (operation === "remove") {
-            return { ...tree, child: tree.child.filter(node => node.name !== newNode.name) };
+            return { ...tree, child: tree.child.filter(node => (node.name !== newNode.name || node.type !== newNode.type)) };
         } else if (operation === "get") {
             return tree;
         }

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./folder.css";
-const Folder = ({ folderData, setBreadCrumb, index, breadcrumb }) => {
+import Menu from "../menu/menu";
+const Folder = ({ folderData, setBreadCrumb, index, breadcrumb, folderTree, setFolderTree }) => {
+    const [showMenu, setShowMenu] = useState(false);
     const alterBreadCrumb = () => {
         const newBreadCrumb = {
             name: folderData.name,
@@ -10,10 +12,14 @@ const Folder = ({ folderData, setBreadCrumb, index, breadcrumb }) => {
         currentBreadCrumb.push(newBreadCrumb);
         setBreadCrumb(currentBreadCrumb);
     }
+    const alterMenuVisibility = () => {
+        setShowMenu(!showMenu);
+    }
     return (
-        <div className="folder" onDoubleClick={alterBreadCrumb}>
+        <div className="folder root" onDoubleClick={alterBreadCrumb} onClick={alterMenuVisibility}>
             <img className="folder img" src={require("../../constants/images/folder.png")} alt="file" ></img>
-            <div>{folderData?.name}</div>
+            <div className="folder name">{folderData?.name}</div>
+            {showMenu && <Menu setShowMenu={setShowMenu} folderData={folderData} breadcrumb={breadcrumb} folderTree={folderTree} setFolderTree={setFolderTree} />}
         </div>
     )
 

@@ -1,0 +1,22 @@
+.menu{
+    &.root{
+        z-index: 1;
+        position: absolute;
+       
+        bottom: -60px;
+        background-color: white;
+        right: -30px;
+        border-radius: 6px;
+        box-shadow: 0 1px 12px rgba(0, 0, 0, .16);
+        min-width: 100px;
+    }
+    &.item{
+        padding: 8px 10px;
+        overflow: hidden;
+        font-size: 14px;
+    }
+    &.item:hover{
+        background-color: #eeeff1;
+        border-radius: 6px;
+    }
+}

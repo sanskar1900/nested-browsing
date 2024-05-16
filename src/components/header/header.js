@@ -1,31 +1,35 @@
 import React, { useState } from "react";
 import "./header.css";
-const Header = ({ setSearchText, breadCrumb, searchText, setBreadCrumb }) => {
+const Header = ({ setSearchText, breadcrumb, searchText, setBreadCrumb }) => {
     const goBack = () => {
-        let newBreadCrumb = breadCrumb;
+        if (breadcrumb?.length === 1) return;
+        let newBreadCrumb = breadcrumb;
         newBreadCrumb.pop();
-        console.log(newBreadCrumb);
-        setBreadCrumb(newBreadCrumb);
+        setBreadCrumb([...newBreadCrumb]);
 
+    }
+    const redirectToParent = (index) => {
+        let newBreadCrumbs = breadcrumb?.filter((item, i) => { return (i === 0 || i <= index) })
+        setBreadCrumb(newBreadCrumbs)
     }
     return (
         <div className="header">
             <div>
 
                 <div className="header breadCrumbs">
-                    <div className="header backbtn" onClick={goBack}>back</div>
-                    {breadCrumb?.map((data, i) => {
-                        if (i === breadCrumb?.length - 1)
+                    <div className="header backbtn" onClick={goBack}>⬅️</div>
+                    {breadcrumb?.map((data, i) => {
+                        if (i === breadcrumb?.length - 1)
                             return (
-                                <div className="header current">{data?.name}</div>
+                                <div key={i} className="header current">{data?.name}</div>
                             )
                         else {
-                            return <div className="header prev">{data?.name + "/"}</div>
+                            return <div key={i} onClick={() => redirectToParent(i)} className="header prev">{data?.name + " /"}</div>
                         }
                     })}
                 </div>
             </div>
-            <input className="header input" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} />
+            <input placeholder="🔍 Search for anything" className="header input" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} />
         </div>
     )
 }
