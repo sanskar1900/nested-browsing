@@ -8,7 +8,7 @@
         right: -30px;
         border-radius: 6px;
         box-shadow: 0 1px 12px rgba(0, 0, 0, .16);
-        min-width: 100px;
+        min-width: 120px;
     }
     &.item{
         padding: 8px 10px;
@@ -17,6 +17,6 @@
     }
     &.item:hover{
         background-color: #eeeff1;
-        border-radius: 6px;
+        
     }
 }

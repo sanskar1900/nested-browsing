@@ -1,7 +1,8 @@
 .header {
-    display: flex;
+   &.root {display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 36px;}
 
     &.backbtn {
         cursor: pointer;
@@ -9,7 +10,10 @@
         margin-top: 4px;
         margin-right: 10px;
     }
-
+    &.info{
+        font-size: 15px;
+        font-weight: 550;
+    }
     &.current{
         color: black;
         cursor: pointer;
@@ -19,6 +23,7 @@
     color: gray;
         cursor: pointer;
         font-size: 14px;
+       
     }
     &.breadCrumbs{
        display: flex;
