@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { menuItem } from "../../constants/data";
 import "./menu.css";
-import { updateNode } from "../../constants/general-functions";
+import { updateNode } from "../../constants/utils";
 import Modal from "../modal/modal";
 const Menu = ({
     setCopiedNode,

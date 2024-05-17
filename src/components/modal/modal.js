@@ -4,7 +4,7 @@ import {
     checkConflict,
     getNode,
     updateNode,
-} from "../../constants/general-functions";
+} from "../../constants/utils";
 const Modal = ({
     breadcrumb,
     folderTree,

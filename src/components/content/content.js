@@ -8,7 +8,7 @@ import {
     getNode,
     searchNodes,
     updateNode,
-} from "../../constants/general-functions";
+} from "../../constants/utils";
 const Content = ({
     copiedNode,
     setCopiedNode,

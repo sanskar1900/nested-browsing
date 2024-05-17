@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./file.css";
-import { getExtension } from "../../constants/general-functions";
+import { getExtension } from "../../constants/utils";
 import Menu from "../menu/menu";
 import Modal from "../modal/modal";
 const File = ({
