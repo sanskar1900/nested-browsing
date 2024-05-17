@@ -12,6 +12,13 @@
     margin-top: 4px;
     margin-right: 10px;
   }
+  &.cross{
+    margin-right: 10px;
+    font-weight: 400;
+    font-size: 22px;
+    cursor: pointer;
+    
+  }
   &.info {
     font-size: 15px;
     font-weight: 550;

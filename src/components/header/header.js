@@ -36,12 +36,12 @@ const Header = ({
                     ) : searchText?.length === 0 ? (
                         <div className="header info">
                             {" "}
-                            Search Page : Type atleast 1 character.{" "}
+                            <span onClick={toggleSearchItems} className="header cross">X</span>     Search Page : Type atleast 1 character.{" "}
                         </div>
                     ) : (
                         <div className="header info">
                             {" "}
-                            {`Found results : ${filteredResults} items`}
+                            <span onClick={toggleSearchItems} className="header cross">X</span>  {`Found results : ${filteredResults} items`}
                         </div>
                     )}
                     {!showSearchInfo &&

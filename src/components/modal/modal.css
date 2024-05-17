@@ -33,6 +33,8 @@
     min-width: 50px;
     text-align: center;
     padding: 5px 4px;
+    font-size: 14px;
+    font-weight: 500;
   }
   &.error {
     color: red;
@@ -46,6 +48,8 @@
     padding: 5px 4px;
     cursor: pointer;
     color: gray;
+    font-size: 14px;
+    font-weight: 500;
   }
   &.flex {
     display: flex;
@@ -54,6 +58,7 @@
     border-radius: 8px;
     overflow: hidden;
     margin-top: 20px;
+
   }
   &.heading {
     font-size: 18px;
