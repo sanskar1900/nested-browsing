@@ -3,12 +3,23 @@
     z-index: 1;
     position: absolute;
 
-    bottom: -60px;
+    bottom: -95px;
     background-color: white;
     right: -30px;
     border-radius: 6px;
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.16);
     min-width: 120px;
+  }
+  &.root-file{
+    z-index: 1;
+        position: absolute;
+    
+        bottom: -75px;
+        background-color: white;
+        right: -30px;
+        border-radius: 6px;
+        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.16);
+        min-width: 120px;
   }
   &.item {
     padding: 8px 10px;

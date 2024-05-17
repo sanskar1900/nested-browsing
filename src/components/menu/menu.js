@@ -11,6 +11,7 @@ const Menu = ({
     folderTree,
     setFolderTree,
     setOpenModal,
+    alterBreadCrumb
 }) => {
     const menuRef = useRef(null);
     useEffect(() => {
@@ -36,6 +37,8 @@ const Menu = ({
             case 3:
                 operation = "remove";
                 break;
+            case 4:
+                operation = "open"
             default:
                 break;
         }
@@ -55,24 +58,31 @@ const Menu = ({
             setFolderTree(updatedTree);
         } else if (operation === "rename") {
             setOpenModal(true);
-        } else {
+        } else if (operation === "copy") {
             setCopiedNode(folderData);
+        }
+        else {
+            alterBreadCrumb();
         }
     };
     return (
         <>
-            <div ref={menuRef} className="menu root">
+            <div ref={menuRef} className={folderData?.type === "folder" ? "menu root" : "menu root-file"}>
                 {menuItem.map((data) => {
-                    return (
-                        <div
-                            onClick={() => handleOperation(data)}
-                            className="menu item"
-                            style={{ color: data?.color }}
-                            key={data?.id}
-                        >
-                            {data?.name}
-                        </div>
-                    );
+                    if (!(data?.id === 0 && folderData?.type === "file"))
+                        return (
+                            <div
+                                onClick={() => handleOperation(data)}
+                                className="menu item"
+                                style={{ color: data?.color }}
+                                key={data?.id}
+                            >
+                                {data?.name}
+                            </div>
+                        );
+                    else {
+                        return <></>
+                    }
                 })}
             </div>
         </>

@@ -54,6 +54,7 @@ const Folder = ({
                         breadcrumb={breadcrumb}
                         folderTree={folderTree}
                         setFolderTree={setFolderTree}
+                        alterBreadCrumb={alterBreadCrumb}
                     />
                 )}
             </div>
