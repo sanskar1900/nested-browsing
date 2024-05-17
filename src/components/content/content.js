@@ -21,10 +21,8 @@ const Content = ({
     showSearchInfo,
 }) => {
     const [openModal, setOpenModal] = useState(false);
-    console.log("i recieved", copiedNode);
     useEffect(() => {
         const handlePaste = () => {
-            console.log(copiedNode, "is", copiedNode);
             if (copiedNode) {
                 let path = breadcrumb
                     .filter((data) => data.index >= 0)

@@ -11,9 +11,6 @@ function App() {
   const [showSearchInfo, setShowSearchInfo] = useState(false);
   const [copiedNode, setCopiedNode] = useState(null);
   const [folderTree, setFolderTree] = useState(initialTree);
-  useEffect(() => {
-    console.log("changes", copiedNode);
-  }, [copiedNode]);
   return (
     <div>
       <Header
