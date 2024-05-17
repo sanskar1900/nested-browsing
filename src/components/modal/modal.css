@@ -9,7 +9,7 @@
     top: 32%;
     left: 50%;
     transform: translateX(-50%);
-
+    z-index: 1;
     border-radius: 8px;
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.16);
   }

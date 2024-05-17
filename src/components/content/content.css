@@ -5,16 +5,15 @@
     flex-wrap: wrap;
     align-items: baseline;
     margin-top: 20px;
-
-   
  }
+ 
  &.flex{display: flex;align-items: center;}
  &.add{
     height: 90px;
     cursor: pointer;
  }
  &.add-div{
-   min-width: 100px;
+   min-width: 120px;
    min-height: 100px;
    display: flex;
    align-items: center;
@@ -23,3 +22,9 @@
    
  }
 }
+@media screen and (max-width: 550px) {
+   .content.childs {
+      justify-content: center;
+   }
+}
+ 
