@@ -14,7 +14,7 @@ export const getNode = (tree, path, operation, newNode) => {
     }
 
 };
-export const updateNode = (tree, path, operation, newNode) => {
+export const updateNode = (tree, path, operation, newNode, oldNode) => {
     if (path.length === 0) {
         if (operation === "add") {
             return { ...tree, child: [...tree.child, newNode] };
@@ -23,6 +23,20 @@ export const updateNode = (tree, path, operation, newNode) => {
         } else if (operation === "get") {
             return tree;
         }
+        else if (operation === "update") {
+            let treeChilds = [];
+            for (let i = 0; i < tree.child.length; i++) {
+                if (tree.child[i].name === oldNode.name && tree.child[i].type === oldNode.type) {
+                    tree.child[i].name = newNode.name;
+                    break;
+                }
+            }
+            return {
+
+                ...tree, child: tree.child
+            };
+        }
+
         return tree;
     }
 
@@ -30,7 +44,7 @@ export const updateNode = (tree, path, operation, newNode) => {
     return {
         ...tree,
         child: tree.child.map((node, i) =>
-            i === index ? updateNode(node, restPath, operation, newNode) : node
+            i === index ? updateNode(node, restPath, operation, newNode, oldNode) : node
         )
     };
 };

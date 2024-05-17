@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { menuItem } from "../../constants/data";
 import "./menu.css";
 import { updateNode } from "../../constants/general-functions";
-const Menu = ({ setShowMenu, folderData, breadcrumb, folderTree, setFolderTree }) => {
+import Modal from "../modal/modal";
+const Menu = ({ setShowMenu, folderData, breadcrumb, folderTree, setFolderTree, setOpenModal }) => {
 
     const menuRef = useRef(null);
     useEffect(() => {
@@ -14,6 +15,7 @@ const Menu = ({ setShowMenu, folderData, breadcrumb, folderTree, setFolderTree }
     const handleClickOutsideMenu = (event) => {
         if (menuRef.current && !menuRef.current.contains(event.target)) {
             setShowMenu(false);
+
         }
     };
     const handleOperation = (data) => {
@@ -39,15 +41,23 @@ const Menu = ({ setShowMenu, folderData, breadcrumb, folderTree, setFolderTree }
             const updatedTree = updateNode(folderTree, path, operation, folderData);
             setFolderTree(updatedTree)
         }
+        else if (operation === "rename") {
+
+            setOpenModal(true);
+        }
     }
     return (
-        <div ref={menuRef} className="menu root">
+        <>
+            <div ref={menuRef} className="menu root">
 
-            {menuItem.map((data) => {
-                return (
-                    <div onClick={() => handleOperation(data)} className="menu item" style={{ color: data?.color }} key={data?.id}>{data?.name}</div>)
-            })}
-        </div>
+                {menuItem.map((data) => {
+                    return (
+                        <div onClick={() => handleOperation(data)} className="menu item" style={{ color: data?.color }} key={data?.id}>{data?.name}</div>)
+                })}
+
+            </div>
+
+        </>
     )
 }
 export default Menu;

@@ -13,10 +13,12 @@
     &.current{
         color: black;
         cursor: pointer;
+        font-size: 16px;
     }
     &.prev{
     color: gray;
         cursor: pointer;
+        font-size: 14px;
     }
     &.breadCrumbs{
        display: flex;

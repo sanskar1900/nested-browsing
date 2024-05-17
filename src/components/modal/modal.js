@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./modal.css"
-import { updateNode } from "../../constants/general-functions";
-const Modal = ({ breadcrumb, folderTree, setFolderTree, setOpenModal }) => {
+import { getNode, updateNode } from "../../constants/general-functions";
+const Modal = ({ breadcrumb, folderTree, setFolderTree, setOpenModal, rename, folderData }) => {
     const modalRef = useRef(null);
     const [error, setError] = useState("");
     const [selectedOption, setSelectedOption] = useState(0);
-    const [name, setName] = useState("");
+    const [name, setName] = useState(rename ? folderData?.name : "");
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutsideModal);
         return () => {
@@ -19,18 +19,31 @@ const Modal = ({ breadcrumb, folderTree, setFolderTree, setOpenModal }) => {
         setName(e.target.value);
     }
     const create = () => {
-        const value = {
-            name: name,
-            type: selectedOption === 0 ? "file" : "folder",
-            child: []
-        }
         let path = breadcrumb
             .filter((data) => { return data.index >= 0 })
             .map((data) => data.index);
-        console.log(path);
-        const updatedTree = updateNode(folderTree, path, "add", value);
+        let childs
+        if (rename) {
+            childs = getNode(folderTree, path, "get").child;
+            console.log("childs are", childs);
+        }
+        const value = !rename ? {
+            name: name,
+            type: selectedOption === 0 ? "file" : "folder",
+            child: []
+        } : {
+            name: name,
+            type: folderData?.type,
+            child: childs
+        }
+
+        console.log("path is", path);
+
+        const updatedTree = rename ? updateNode(folderTree, path, "update", value, folderData) : updateNode(folderTree, path, "add", value);
+        console.log("updated tree is", updatedTree);
 
         setFolderTree(updatedTree)
+        setName("");
 
 
     }
@@ -46,14 +59,14 @@ const Modal = ({ breadcrumb, folderTree, setFolderTree, setOpenModal }) => {
         <div ref={modalRef} className="modal root">
             <div className="modal content">
                 <div className="modal cross" onClick={closeModal}>✖️</div>
-                <div className="modal heading">Create New</div>
-                <div className="modal flex">
+                <div className="modal heading">{rename ? "Rename" : "Create New"}</div>
+                {!rename && <div className="modal flex">
                     <div className={`modal ${selectedOption === 0 ? "selectedOption" : "unselectedOption"}`} onClick={changeOption}>File</div>
                     <div className={`modal ${selectedOption === 1 ? "selectedOption" : "unselectedOption"}`} onClick={changeOption}>Folder</div>
 
-                </div>
+                </div>}
                 <input placeholder="Name" className="modal input" value={name} onChange={handleChangeName} />
-                <div className="modal create" onClick={create}>Create</div>
+                <div className="modal create" onClick={create}>{rename ? "Rename" : "Create"}</div>
             </div>
         </div>
     )
