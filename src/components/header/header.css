@@ -1,39 +1,40 @@
 .header {
-   &.root {display: flex;
+  &.root {
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 36px;}
+    height: 36px;
+  }
 
-    &.backbtn {
-        cursor: pointer;
-        font-size: 24px;
-        margin-top: 4px;
-        margin-right: 10px;
-    }
-    &.info{
-        font-size: 15px;
-        font-weight: 550;
-    }
-    &.current{
-        color: black;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    &.prev{
+  &.backbtn {
+    cursor: pointer;
+    font-size: 24px;
+    margin-top: 4px;
+    margin-right: 10px;
+  }
+  &.info {
+    font-size: 15px;
+    font-weight: 550;
+  }
+  &.current {
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  &.prev {
     color: gray;
-        cursor: pointer;
-        font-size: 14px;
-       
-    }
-    &.breadCrumbs{
-       display: flex;
-      gap: 5px;
-       align-items: center;
-    }
-    &.input{
-        padding: 6px 10px;
-        border-radius: 8px;
-        border: 1px solid #c5c6c7;
-        outline-color: #49baff;
-    }
+    cursor: pointer;
+    font-size: 14px;
+  }
+  &.breadCrumbs {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  &.input {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #c5c6c7;
+    outline-color: #49baff;
+  }
 }
